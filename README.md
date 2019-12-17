@@ -1,10 +1,16 @@
 redis集群搭建
 
 启动方式
+```bash
 docker-compose up
+```
+
 更新代码
+```bash
 git pull
 docker-compose restart
+```
+
 
 
 
@@ -55,9 +61,14 @@ docker network inspect redis-cluster_mynetwork
             "com.docker.compose.version": "1.24.1"
 ```
 再把网络和每一个容器进行销毁
+```bash
 docker network disconnect -f redis-cluster_mynetwork b06e46316f48_redis-node-2
 docker network disconnect -f redis-cluster_mynetwork c5e67941a0e3_redis-node-3
 docker network disconnect -f redis-cluster_mynetwork df854f209087_redis-node-1
+```
+
 
 最后删除网络即可
+```bash
 docker network rm redis-cluster_mynetwork 
+```
