@@ -20,6 +20,7 @@ for d in ${dir}; do
 done
 
 docker rm -f redis-sentinel redis-slave redis-master
+docker rm -f redis-sentinel redis-slave redis-master
 
 # 主redis，该容器命名为redis-master 使用mynetwork网络 端口映射10001 对应容器内部端口的6379 指定容器固定IP:172.10.0.2 使用redis镜像来生成容器并在后台运行
 docker run -it  --name redis-master -v ${PWD}/master/redis.conf:/etc/redis.conf \
