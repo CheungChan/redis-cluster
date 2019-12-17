@@ -4,7 +4,8 @@ MASTER_PORT=10001
 NODE_PORT=10002
 SENTINEL_PORT=10003
 
-for d in /data/redis/${MASTER_PORT} /data/redis/${NODE_PORT} /data/redis/${SENTINEL_PORT}; do
+dir="/data/redis/${MASTER_PORT} /data/redis/${NODE_PORT} /data/redis/${SENTINEL_PORT}"
+for d in ${dir}; do
   if [ ! -d $d ]; then
     mkdir $d
   else
