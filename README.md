@@ -1,3 +1,12 @@
+redis集群搭建
+
+启动方式
+docker-compose up
+更新代码
+git pull
+docker-compose restart
+
+
 
 如果报错Cannot start service redis3: Address already in use
 是因为容器是restart=always的, 容器删除之后, 容器的端口映射的端口不会回收, 需要手动断开
