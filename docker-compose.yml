@@ -35,7 +35,7 @@ services:
      - 10002:6379
     networks:
       mynetwork:
-        ipv4_address: 172.10.0.4
+        ipv4_address: 172.10.0.3
     volumes:
       # 容器的data映射到宿主机
       - ${PWD}/slave/redis.conf:/etc/redis.conf
