@@ -16,7 +16,6 @@ services:
     volumes:
       - ${PWD}/master/redis.conf:/etc/redis.conf
       - /data/redis/${MASTER_PORT}:/data
-      - ${PWD}/logs:/var/log/redis
     # 启动redis的时候指定配置文件
     command: redis-server /etc/redis.conf
     environment:
@@ -38,7 +37,6 @@ services:
     volumes:
       - ${PWD}/slave/redis.conf:/etc/redis.conf
       - /data/redis/${NODE_PORT}:/data
-      - ${PWD}/logs:/var/log/redis
     # 启动redis的时候指定配置文件
     command: redis-server /etc/redis.conf
     environment:
@@ -60,7 +58,6 @@ services:
     volumes:
       - ${PWD}/sentinel/sentinel.conf:/etc/sentinel.conf
       - /data/redis/${SENTINEL_PORT}:/data
-      - ${PWD}/logs:/var/log/redis
     # 启动redis的时候指定配置文件
     command: redis-sentinel /etc/sentinel.conf
     environment:
