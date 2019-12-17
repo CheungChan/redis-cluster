@@ -21,6 +21,7 @@ services:
     environment:
       # 设置时区为上海，否则时间会有问题
       - TZ=Asia/Shanghai
+    restart: always
   # 节点2
   redis2:
     container_name: redis-node-2
@@ -42,6 +43,7 @@ services:
     environment:
       # 设置时区为上海，否则时间会有问题
       - TZ=Asia/Shanghai
+    restart: always
   # 节点3
   redis3:
     container_name: redis-node-3
@@ -63,6 +65,7 @@ services:
     environment:
       # 设置时区为上海，否则时间会有问题
       - TZ=Asia/Shanghai
+    restart: always
 networks:
   # 创建集群网络，在容器之间通信
   mynetwork:
