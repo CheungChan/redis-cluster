@@ -1,12 +1,14 @@
+#!/bin/bash
+
+MASTER_PORT=10001
+NODE_PORT=10002
+SENTINEL_PORT=10003
+
 if [ $(docker network ls | grep -c "mynetwork") -gt 1 ]; then
   docker network create --subnet=172.10.0.0/16 mynetwork
 else
   echo network exists
 fi
-
-MASTER_PORT=10001
-NODE_PORT=10002
-SENTINEL_PORT=10003
 
 dir="/data/redis/${MASTER_PORT} /data/redis/${NODE_PORT} /data/redis/${SENTINEL_PORT}"
 for d in ${dir}; do
