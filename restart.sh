@@ -1,4 +1,8 @@
-docker network create --subnet=172.10.0.0/16 mynetwork
+if [ $(docker network ls | grep -c "mynetwork") -gt 1 ]; then
+  docker network create --subnet=172.10.0.0/16 mynetwork
+else
+  echo network exists
+fi
 
 MASTER_PORT=10001
 NODE_PORT=10002
