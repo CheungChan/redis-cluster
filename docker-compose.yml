@@ -14,10 +14,9 @@ services:
         mynetwork:
           ipv4_address: 172.10.0.2
     volumes:
-      # 容器的data映射到宿主机
       - ${PWD}/master/redis.conf:/etc/redis.conf
-      # 加载配置文件
       - /data/redis/${MASTER_PORT}:/data
+      - ${PWD}/logs:/var/log/redis/
     # 启动redis的时候指定配置文件
     command: redis-server /etc/redis.conf
     environment:
@@ -37,10 +36,9 @@ services:
       mynetwork:
         ipv4_address: 172.10.0.3
     volumes:
-      # 容器的data映射到宿主机
       - ${PWD}/slave/redis.conf:/etc/redis.conf
-      # 加载配置文件
       - /data/redis/${NODE_PORT}:/data
+      - ${PWD}/logs:/var/log/redis/
     # 启动redis的时候指定配置文件
     command: redis-server /etc/redis.conf
     environment:
@@ -60,10 +58,9 @@ services:
         mynetwork:
           ipv4_address: 172.10.0.4
     volumes:
-      # 容器的data映射到宿主机
       - ${PWD}/sentinel/sentinel.conf:/etc/sentinel.conf
-      # 加载配置文件
       - /data/redis/${SENTINEL_PORT}:/data
+      - ${PWD}/logs:/var/log/redis/
     # 启动redis的时候指定配置文件
     command: redis-sentinel /etc/sentinel.conf
     environment:
