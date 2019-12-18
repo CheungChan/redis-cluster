@@ -1,13 +1,10 @@
 version: '3.3'
 services:
   redis1:
-    # 启动之后的容器名称
     container_name: redis-node-1
-    # 使用哪种镜像
     image: 'redis'
     env_file:
       - ./.env
-    # 端口映射
     ports:
       - 10001:10001
     networks:
@@ -16,7 +13,6 @@ services:
     volumes:
       - ${PWD}/master/redis.conf:/etc/redis.conf
       - /data/redis/${MASTER_PORT}:/data
-    # 启动redis的时候指定配置文件
     command: redis-server /etc/redis.conf
     environment:
       # 设置时区为上海，否则时间会有问题
@@ -25,11 +21,9 @@ services:
   # 节点2
   redis2:
     container_name: redis-node-2
-    # 使用哪种镜像
     image: 'redis'
     env_file:
       - ./.env
-    # 端口映射
     ports:
      - 10002:10002
     networks:
@@ -51,7 +45,7 @@ services:
     image: 'redis'
     # 端口映射
     ports:
-       - 10003:26379
+       - 26379:26379
     env_file:
       - ./.env
     networks:
