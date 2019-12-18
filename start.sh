@@ -1,4 +1,4 @@
 #!/bin/bash
 
 
-docker-compse up
+docker-compose up
