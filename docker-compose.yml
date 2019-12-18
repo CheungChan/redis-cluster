@@ -44,7 +44,7 @@ services:
       # 设置时区为上海，否则时间会有问题
       - TZ=Asia/Shanghai
     restart: always
-   节点3
+  # 节点3
   redis3:
     container_name: redis-node-3
     # 使用哪种镜像
